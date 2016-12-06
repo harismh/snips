@@ -1,8 +1,14 @@
 <div ng-controller="SnipsCreateCtrl">
-  <h2>New Snippet</h2>
-  <form name="addForm" ng-submit="addSnippet()">
-    <input placeholder="Enter title..." type="text" ng-model="name" required> <br />
-    <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model="code"></textarea>
-    <input type="submit" name="submit" ng-disabled="addForm.$invalid">
+  <h2 ng-model="header">{{header}}</h2>
+  <form name="addForm" ng-submit="addSnippet()" novalidate>
+    <div>
+      <input placeholder="Enter title..." type="text" ng-model="name" required>
+    </div>
+    <div>
+      <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model="code" required></textarea>
+    </div>
+    <div>
+      <input type="submit" name="submit" value="Save" ng-disabled="addForm.$invalid">
+    </div>
   </form>
 </div>

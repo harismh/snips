@@ -1,4 +1,4 @@
-var Snips = angular.module('SnipsApp', ['ngRoute', 'ui.codemirror']);
+var Snips = angular.module('SnipsApp', ['ngRoute', 'ui.codemirror', 'ngclipboard']);
 
 Snips.config(function($routeProvider) {
   $routeProvider
@@ -15,7 +15,7 @@ Snips.config(function($routeProvider) {
     controller: 'SnipsDisplayCtrl'
   })
   .otherwise({
-    redirectTo: '/'
+    redirectTo: '/browse'
   });
 })
 
@@ -33,7 +33,10 @@ Snips.controller('SnipsCtrl', function($scope, database) {
 Snips.controller('SnipsCreateCtrl', function($scope, database) {
   $scope.editorOptions = {
     lineNumbers: true,
+    hint: true
   };
+
+  $scope.header = 'New';
 
    $scope.addSnippet = function() {
       database.data.push({
@@ -45,18 +48,18 @@ Snips.controller('SnipsCreateCtrl', function($scope, database) {
       database.display = database.data[database.data.length - 1];
       $scope.name = '';
       $scope.code = '';  
+      $scope.header = 'Added';
+
       console.log('added', database);
   };
 });
 
 Snips.controller('SnipsBrowseCtrl', function($scope, $location, database) {
   $scope.data = database.data;
-  
   $scope.changeDisplay = function(snippet) {
     database.display = snippet;
     $location.path('display');
   };
-
 });
 
 Snips.controller('SnipsDisplayCtrl', function($scope, database) {

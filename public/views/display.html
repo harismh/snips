@@ -1,8 +1,7 @@
 <div ng-controller="SnipsDisplayCtrl">
-<!-- <h2>{{display.name}}</h2>
-<code>
-  {{display.code}}
-</code> -->
   <h2>{{display.name}}</h2>
   <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror>
+  <div>
+    <input type="submit" value="Copy to Clipboard" ngclipboard data-clipboard-text="{{display.code}}">
+  </div>
 </div>

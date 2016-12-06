@@ -17,6 +17,9 @@
   "dependencies": {
     "angular": "^1.5.9",
     "angular-route": "^1.5.9",
-    "angular-ui-codemirror": "^0.3.0"
+    "angular-ui-codemirror": "^0.3.0",
+    "milligram": "^1.2.2",
+    "clipboard": "^1.5.15",
+    "ngclipboard": "^1.1.1"
   }
 }
