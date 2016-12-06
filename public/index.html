@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="bower_components/codemirror/lib/codemirror.js"></script>
+  <script type="text/javascript" src="bower_components/codemirror/mode/javascript/javascript.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+  <script src="app.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+  <h1>Snips</h1>
+  <div ng-app="SnipsApp">
+    <div ng-controller="SnipsCtrl">
+      <nav>
+        <a href="#/new"><button>New</button></a>
+        <a href="#/browse"><button>Browse</button></a>
+      </nav>
+      <div ng-view></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div>
+  <h2>Browse Snippets</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+    </tr>
+    <tr ng-repeat="snippet in data | orderBy: '-date'" ng-click="changeDisplay(snippet)">
+      <td> {{snippet.name}} </td>
+      <td> {{snippet.date}} </td>
+    </tr>
+  </table>
+</div>

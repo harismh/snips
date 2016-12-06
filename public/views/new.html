@@ -1,0 +1,8 @@
+<div ng-controller="SnipsCreateCtrl">
+  <h2>New Snippet</h2>
+  <form name="addForm" ng-submit="addSnippet()">
+    <input placeholder="Enter title..." type="text" ng-model="name" required> <br />
+    <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model="code"></textarea>
+    <input type="submit" name="submit" ng-disabled="addForm.$invalid">
+  </form>
+</div>
