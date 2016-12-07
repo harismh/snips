@@ -34,3 +34,6 @@ bower_components/
 .floobit
 .floo
 .flooignore
+
+#Databases
+data/

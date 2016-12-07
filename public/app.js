@@ -19,15 +19,44 @@ Snips.config(function($routeProvider) {
   });
 })
 
-Snips.factory('database', function() {
+Snips.factory('database', function($http) {
+  var cache = [ {title: 'Hello World', code:'console.log("Hello World")'} ];
+
   return {
-    data: [],
+    data: function() { this.get(); return cache; },
     display: {},
+    get: function() {
+      $http({
+        method: 'GET',
+        url: 'http://localhost:8000/api/snips',
+      }).then(function(response) {
+        console.log('success', response);
+        cache = response.data;
+      });
+    },
+    post: function(snippet) {
+      $http({
+        method: 'POST',
+        url: 'http://localhost:8000/api/snips',
+        data: snippet
+      }).then(function(response) {
+        console.log('success posting', response);
+      });
+    },
+    delete: function(param) {
+      $http({
+        method: 'DELETE',
+        url: 'http://localhost:8000/api/snips',
+        data: param
+      }).then(function(response) {
+        console.log('deleting snippet...', response);
+      })
+    }
   };
+
 });
 
 Snips.controller('SnipsCtrl', function($scope, database) {
-
 });
 
 Snips.controller('SnipsCreateCtrl', function($scope, database) {
@@ -38,28 +67,32 @@ Snips.controller('SnipsCreateCtrl', function($scope, database) {
 
   $scope.header = 'New';
 
-   $scope.addSnippet = function() {
-      database.data.push({
-        name: $scope.name,
-        code: $scope.code,
-        date: new Date()
-      });
+  $scope.addSnippet = function() {
+    database.post({
+      name: $scope.name,
+      code: $scope.code,
+      date: new Date()
+    });
 
-      database.display = database.data[database.data.length - 1];
-      $scope.name = '';
-      $scope.code = '';  
-      $scope.header = 'Added';
+    $scope.name = '';
+    $scope.code = '';  
+    $scope.header = 'Added';
 
-      console.log('added', database);
+    database.get();
   };
 });
 
 Snips.controller('SnipsBrowseCtrl', function($scope, $location, database) {
-  $scope.data = database.data;
+  $scope.data = database.data();
+
   $scope.changeDisplay = function(snippet) {
     database.display = snippet;
     $location.path('display');
   };
+
+  $scope.deleteSnip = function(snippet) {
+    database.delete(snippet.name);
+  }
 });
 
 Snips.controller('SnipsDisplayCtrl', function($scope, database) {

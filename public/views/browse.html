@@ -4,10 +4,13 @@
     <tr>
       <th>Name</th>
       <th>Date</th>
+      <td> </td>
     </tr>
-    <tr ng-repeat="snippet in data | orderBy: '-date'" ng-click="changeDisplay(snippet)">
-      <td> {{snippet.name}} </td>
-      <td> {{snippet.date}} </td>
+    <tr ng-repeat="snippet in data | filter: search | orderBy: '-date'">
+      <td ng-click="changeDisplay(snippet)"> {{snippet.name}} </td>
+      <td ng-click="changeDisplay(snippet)"> {{snippet.date}} </td>
+      <td ng-click="deleteSnip(snippet)"> &times; </td>
     </tr>
   </table>
+  <input type="text" ng-model="search" placeholder="Search for snippets...">
 </div>

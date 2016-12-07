@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/harismh/hrsf50-mvp#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
     "nedb": "^1.8.0",
     "node": "0.0.0"
   }
