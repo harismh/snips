@@ -7,10 +7,7 @@ Snips saves your code while offering fast copy-paste, live searching, and simple
 ## Features ##
 * Syntax highlighting
 * One-click copy and pasting
-* Nested folders
 * Live-search
-* Text joining (Link two or more snippets together)
-* Code evaluation (???) 
 
 ## Reviews ##
 > Snips gives me a great a way to store all those random bits of code and hauls from Stack Overflow.
@@ -22,4 +19,4 @@ Snips saves your code while offering fast copy-paste, live searching, and simple
 — Some Gal
 
 ## Getting Started ##
-Visit [Snips](http://) and click **Sign Up** to create an account.
+Visit [Snips](https://github.com/harismh) and click **Sign Up** to create an account.
