@@ -1,6 +1,9 @@
 # Snips: #
 An online text editor with a focus on code and speed.
 
+<img src="./examples/browse.png">
+<img src="./examples/display.png">
+
 ## Summary ##
 Snips saves your code while offering fast copy-paste, live searching, and simple organization.
 
